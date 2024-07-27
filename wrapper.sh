@@ -1,13 +1,10 @@
 #!/bin/bash
 
-which python
-which python3
-# find / -name python
-
-
+# Start signal daemon
 /usr/bin/signal-cli daemon --tcp 0.0.0.0:8551 &
 
-# python /app/signalbot.py &
+# Start python handler
+python3 /app/signalbot.py &
 
 wait -n
 
