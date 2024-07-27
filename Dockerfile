@@ -1,7 +1,7 @@
 FROM registry.gitlab.com/packaging/signal-cli/signal-cli-native:latest
 USER root
-RUN apt-get update && apt-get upgrade -y && 
-    apt-get install -y python3 &&
+RUN apt update && apt upgrade -y && 
+    apt install -y python3 &&
     pip install boto3
 USER signal-cli
 COPY signalbot.py .
