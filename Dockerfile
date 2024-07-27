@@ -7,7 +7,8 @@ RUN --mount=type=cache,id=artifacts-${IMAGE_VARIANT},target=/artifacts \
 apt-get update
 apt-get -y upgrade
 apt-get -y install \
-    python3
+    python3 \
+    python3-pip
 pip install boto3
 EOF
 
