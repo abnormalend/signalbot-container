@@ -12,7 +12,8 @@ apt-get -y install \
 pip install boto3
 EOF
 
+WORKDIR /app
 USER signal-cli
 COPY signalbot.py .
 COPY wrapper.sh .
-ENTRYPOINT ["wrapper.sh"]
+ENTRYPOINT ["./wrapper.sh"]
