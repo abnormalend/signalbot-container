@@ -12,7 +12,7 @@ apt-get -y upgrade
 apt-get -y install \
     python3 \
     python3-pip
-pip install boto3 requests
+pip install boto3 requests jsonrpcclient 
 chmod +x ./wrapper.sh
 EOF
 USER signal-cli
