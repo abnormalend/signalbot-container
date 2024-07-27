@@ -5,4 +5,5 @@ RUN apt-get update && apt-get upgrade -y &&
     pip install boto3
 USER signal-cli
 COPY signalbot.py .
+COPY wrapper.sh .
 ENTRYPOINT ["wrapper.sh"]
