@@ -5,4 +5,4 @@ RUN apt-get update && apt-get upgrade -y &&
     pip install boto3
 USER signal-cli
 COPY signalbot.py .
-ENTRYPOINT ["/usr/bin/signal-cli", "daemon", "--tcp", "0.0.0.0:8551"]
+ENTRYPOINT ["wrapper.sh"]
