@@ -12,7 +12,7 @@ apt-get -y upgrade
 apt-get -y install \
     python3 \
     python3-pip
-pip install boto3
+pip install boto3 requests
 chmod +x ./wrapper.sh
 EOF
 USER signal-cli
