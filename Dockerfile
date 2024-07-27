@@ -1,4 +1,5 @@
 FROM registry.gitlab.com/packaging/signal-cli/signal-cli-native:latest
+WORKDIR /app
 COPY signalbot.py .
 COPY wrapper.sh .
 USER root
@@ -14,7 +15,5 @@ apt-get -y install \
 pip install boto3
 chmod +x ./wrapper.sh
 EOF
-WORKDIR /app
 USER signal-cli
-
-ENTRYPOINT ["./wrapper.sh"]
+ENTRYPOINT ["/app/wrapper.sh"]
