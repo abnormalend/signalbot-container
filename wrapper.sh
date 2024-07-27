@@ -4,7 +4,7 @@
 /usr/bin/signal-cli daemon --tcp 0.0.0.0:8551 &
 
 # Start python handler
-python3 /app/signalbot.py &
+# python3 /app/signalbot.py &
 
 wait -n
 

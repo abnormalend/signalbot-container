@@ -1,7 +1,7 @@
 from time import sleep
 import logging
 import requests
-from jsonrpcclient.http_server import HTTPServer
+from jsonrpcclient import request, parse, Ok
 from uuid import uuid4
 import json
 
@@ -29,11 +29,8 @@ brent_phone = "+16166343297"
 # r = requests.post(jsonRPC_address,headers=headers, data=payload_json)
 # logger.info(r.status_code)
 # logger.info(r.json())
-client = HTTPServer(jsonRPC_address)
-response = client.request('send')
 
-
-# response = request(jsonRPC_address, 'send', account=signalbot_phone, recipients=[brent_phone], message="Test")
+response = requests.post(jsonRPC_address, json=request("send", account=signalbot_phone, recipients=[brent_phone], message="Test"))
 print('Response:', response.data)
 
 
