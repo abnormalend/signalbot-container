@@ -1,8 +1,16 @@
 FROM registry.gitlab.com/packaging/signal-cli/signal-cli-native:latest
 USER root
-RUN apt update && apt upgrade -y && 
-    apt install -y python3 &&
-    pip install boto3
+RUN --mount=type=cache,id=artifacts-${IMAGE_VARIANT},target=/artifacts \
+ --mount=type=cache,target=/var/lib/apt/lists,sharing=locked \
+ --mount=type=cache,target=/var/cache/apt,sharing=locked \
+ bash <<EOF
+apt-get update
+apt-get -y upgrade
+apt-get -y install \
+    python3
+pip install boto3
+EOF
+
 USER signal-cli
 COPY signalbot.py .
 COPY wrapper.sh .
