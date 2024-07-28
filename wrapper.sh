@@ -5,8 +5,8 @@
             --config /config \
             -a $ACCOUNT \
             daemon \
-            --http 0.0.0.0:8551 \
-            --receive-mode=manual &
+            --http 0.0.0.0:8551 &   #\
+         #   --receive-mode=manual &
 
 # Start python handler
 # python3 /app/signalbot.py &
